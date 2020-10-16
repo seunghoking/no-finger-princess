@@ -1,4 +1,4 @@
-# ddd
+# scrap-admin-frontend
 
 ## Project setup
 ```

@@ -1,0 +1,160 @@
+// COLOR VARIABLES
+$color-primary: #2163ff;
+
+$color-black: #333333;
+$color-gray-dark: #4a4a4a;
+$color-gray: #898989;
+$color-gray-light: #adadad;
+$color-white: #ffffff;
+
+$color-text-black: $color-black;
+$color-text-gray-dark: $color-gray-dark;
+$color-text-gray: $color-gray;
+$color-text-gray-light: $color-gray-light;
+$color-text-white: $color-white;
+
+$color-line: #e1e1e1;
+
+$color-background-black: $color-black;
+$color-background-light-gray: #f9f9f9;
+$color-background-default: $color-white;
+$color-background-white: $color-white;
+$color-footer: #f4f4f4;
+
+$color-button-primary: $color-primary;
+$color-button-primary-hover: #2154cc;
+$color-button-gray: #f4f4f4;
+$color-button-white: $color-white;
+$color-button-disabled: #d5d5d5;
+
+$color-gnb-white: $color-white;
+$color-gnb-default: transparent;
+
+$font-primary: 'Noto Sans KR', sans-serif, 'Apple SD Gothic Neo',
+  AppleSDGothicNeo, 'Noto Sans CJK KR', 'NanumGothic', 'Malgun Gothic',
+  '맑은 고딕', 돋움, dotum, arial;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+html {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 4.8rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+body {
+  background-color: $color-background-default;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-text-gray-dark;
+    opacity: 1; /* Firefox */
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  outline: 0px none transparent;
+  border: $color-line 1px solid;
+  resize: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  user-select: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  color: $color-text-black;
+  &:active,
+  &:hover {
+    outline: none;
+  }
+}
+
+button {
+  outline: 0;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// scroll
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7d7d7d;
+}
