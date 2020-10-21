@@ -1,10 +1,6 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Admin from '../views/Admin.vue'
-import Log from '../views/Log.vue'
-
-Vue.use(VueRouter)
+import Home from '@/views/Home.vue'
+import Admin from '@/views/Admin.vue'
+import Log from '@/views/Log.vue'
 
 const routes = [
   {
@@ -15,19 +11,13 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    componeent: Admin,
+    component: Admin,
   },
   {
     path: '/log',
     name: 'Log',
-    componeent: Log,
+    component: Log,
   },
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
-})
-
-export default router
+export default routes

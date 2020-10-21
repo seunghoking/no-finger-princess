@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <router-link class="how-to-use" :to="{ name: 'Home' }">
-      이용방법
-    </router-link>
     <nav class="navigation">
+      <Logo class="logo" />
+
       <router-link
         class="navigation--list"
         :class="{
@@ -22,43 +21,62 @@
       >
         로그
       </router-link>
+      <router-link
+        class="navigation--list"
+        :class="{
+          'navigation--list--selected': $route.path === '/',
+        }"
+        :to="{ name: 'Home' }"
+      >
+        이용방법
+      </router-link>
     </nav>
+    <router-view class="app-router" />
   </div>
 </template>
-
 <script>
+import Logo from '@/assets/img/logo.svg'
+
 export default {
-  mounted() {
-    console.log(this.$route.path)
+  components: {
+    Logo,
   },
 }
 </script>
-
 <style lang="scss">
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.how-to-use {
-  position: fixed;
-  top: 3rem;
-  left: 3rem;
-  font-weight: bold;
-  font-size: 2rem;
+
+.app-router {
+  min-height: 1000px;
+}
+.logo {
+  height: 2rem;
+  fill: #ffffff;
+  margin-left: 1rem;
+  margin-right: 3rem;
 }
 .navigation {
+  background-color: #2f67f6;
   font-weight: bold;
-  font-size: 4rem;
   display: flex;
-  justify-content: center;
-  margin-top: 5rem;
+  align-items: center;
+  height: 6rem;
+  font-size: 2rem;
   &--list {
-    cursor: pointer;
+    color: #ffffff;
     &:not(:last-child) {
       margin-right: 5rem;
     }
     &--selected {
-      color: $color-primary;
+      &::after {
+        display: block;
+        content: '';
+        margin-top: 5px;
+        border: 2px solid white;
+      }
     }
   }
 }
