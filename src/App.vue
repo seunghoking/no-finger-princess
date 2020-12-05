@@ -1,41 +1,21 @@
 <template>
   <div id="app">
     <nav class="navigation">
-      <Logo class="logo" />
+      <router-link :to="{ name: 'Home' }">
+        <Logo class="logo" />
+      </router-link>
 
-      <router-link
-        class="navigation--list"
-        :class="{
-          'navigation--list--selected': $route.path.startsWith('/admin'),
-        }"
-        :to="{ name: 'Admin' }"
-      >
-        관리
-      </router-link>
-      <router-link
-        class="navigation--list"
-        :class="{
-          'navigation--list--selected': $route.path.startsWith('/log'),
-        }"
-        :to="{ name: 'Log' }"
-      >
-        로그
-      </router-link>
-      <router-link
-        class="navigation--list"
-        :class="{
-          'navigation--list--selected': $route.path === '/',
-        }"
-        :to="{ name: 'Home' }"
-      >
-        이용방법
-      </router-link>
+      <div>
+        <router-link class="navigation--list" :to="{ name: 'Admin' }">관리</router-link>
+        <router-link class="navigation--list" :to="{ name: 'Log' }">Ask Question</router-link>
+        <router-link class="navigation--list" :to="{ name: 'Home' }">Sign in</router-link>
+      </div>
     </nav>
     <router-view class="app-router" />
   </div>
 </template>
 <script>
-import Logo from '@/assets/img/logo.svg'
+import Logo from '@/assets/img/logo3.svg'
 
 export default {
   components: {
@@ -53,20 +33,22 @@ export default {
   min-height: 1000px;
 }
 .logo {
-  height: 2rem;
-  fill: #ffffff;
+  width: 20rem;
+  height: 20rem;
   margin-left: 1rem;
   margin-right: 3rem;
+  margin-top: 1.5rem;
 }
 .navigation {
-  background-color: #2f67f6;
+  border-bottom: 1px solid #e2e2e2;
   font-weight: bold;
   display: flex;
   align-items: center;
-  height: 6rem;
-  font-size: 2rem;
+  height: 7rem;
+  font-size: 1.6rem;
+  justify-content: space-between;
   &--list {
-    color: #ffffff;
+    margin-right: 5rem;
     &:not(:last-child) {
       margin-right: 5rem;
     }

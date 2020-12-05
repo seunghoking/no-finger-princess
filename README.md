@@ -1,4 +1,5 @@
-# scrap-admin-frontend
+# no-finger-princess
+개발자, 물어보기전에 검색해!
 
 ## Project setup
 ```
