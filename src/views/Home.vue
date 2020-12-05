@@ -1,7 +1,12 @@
 <template>
   <div class="home">
     <div class="container">
-      <div class="frameWorkItem" v-for="item in frameworkData" :key="item.id">{{item.frameworkName}}</div>
+      <div
+        class="frameWorkItem"
+        v-for="item in frameworkData"
+        :key="item.id"
+        @click="routerDetail(item.id)"
+      >{{item.frameworkName}}</div>
     </div>
   </div>
 </template>
@@ -31,6 +36,12 @@ export default {
       { id: 11, frameworkName: 'c' },
     ]
   },
+
+  methods: {
+    routerDetail(id) {
+      this.$router.push({ name: 'Admin', params: { id: id } })
+    },
+  },
 }
 </script>
 
@@ -41,7 +52,7 @@ export default {
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 15rem;
+  margin-left: 13rem;
   margin-right: 5px;
 }
 .frameWorkItem {
@@ -50,7 +61,7 @@ export default {
   background-color: red;
   margin-bottom: 7rem;
   margin-left: 1rem;
-  margin-right: 5rem;
+  margin-right: 6rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
   border-radius: 4px;
