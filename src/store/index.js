@@ -1,11 +1,28 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from '@/api'
 
-Vue.use(Vuex);
+// Modules
+// ───────────────────────────────────
 
-export default new Vuex.Store({
+let moduleList = ['log']
+
+let modules = {}
+
+moduleList.forEach(val => {
+  const path = require(`./modules/${val}`)
+  modules[val] = path.default
+})
+
+Vue.use(Vuex)
+const store = new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
-  modules: {}
-});
+  getters: {},
+  modules,
+})
+
+store.$axios = axios
+
+export default store
