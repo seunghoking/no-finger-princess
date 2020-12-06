@@ -8,7 +8,7 @@
       <div>
         <router-link class="navigation--list" :to="{ name: 'Admin' }">관리</router-link>
         <router-link class="navigation--list" :to="{ name: 'Log' }">Ask Question</router-link>
-        <router-link class="navigation--list" :to="{ name: 'Home' }">Sign in</router-link>
+        <div class="navigation--list signIn" @click="oauthLogin()">Sign in</div>
       </div>
     </nav>
     <router-view class="app-router" />
@@ -16,10 +16,19 @@
 </template>
 <script>
 import Logo from '@/assets/img/logo3.svg'
+import axios from 'axios'
 
 export default {
   components: {
     Logo,
+  },
+
+  methods: {
+    oauthLogin() {
+      axios.get('http://localhost:3355/auth/sign/login/google').then(res => {
+        console.log(res)
+      })
+    },
   },
 }
 </script>
@@ -61,5 +70,8 @@ export default {
       }
     }
   }
+}
+.signIn {
+  display: inline;
 }
 </style>

@@ -1,12 +1,18 @@
 <template>
   <div class="home">
+    <div class="home_header">개발자, 물어보기 전에 검색해!</div>
     <div class="container">
       <div
         class="frameWorkItem"
         v-for="item in frameworkData"
         :key="item.id"
         @click="routerDetail(item.id)"
-      >{{item.frameworkName}}</div>
+      >
+        <div class="thecard">
+          <div class="thefront">{{item.id}}</div>
+          <div class="theback">{{item.frameworkName}}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -49,21 +55,64 @@ export default {
 .home {
   margin: 5rem;
 }
+.home_header {
+  margin-bottom: 5rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 13rem;
+  margin-left: 0.5rem;
   margin-right: 5px;
 }
 .frameWorkItem {
-  width: 30rem;
-  height: 35rem;
-  background-color: red;
+  width: 26rem;
+  height: 33rem;
   margin-bottom: 7rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   margin-right: 6rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
-  transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  border-radius: 4px;
+  border-radius: 2rem;
+  background-color: transparent;
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+.thecard {
+  position: absolute;
+  width: 26rem;
+  height: 33rem;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  cursor: pointer;
+  &:hover {
+    transform: rotateY(180deg);
+  }
+}
+.thefront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #ffc728;
+  color: #333;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 2rem;
+}
+.theback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #5fcf80;
+  color: #fff;
+  transform: rotateY(180deg);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 2rem;
 }
 </style>
