@@ -45,7 +45,7 @@ export default {
 
   methods: {
     routerDetail(id) {
-      this.$router.push({ name: 'Admin', params: { id: id } })
+      this.$router.push({ name: 'Question', params: { id: id } })
     },
   },
 }
@@ -71,13 +71,10 @@ export default {
   height: 33rem;
   margin-bottom: 7rem;
   margin-left: 2rem;
-  margin-right: 6rem;
+  margin-right: 5rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
   border-radius: 2rem;
   background-color: transparent;
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
 }
 .thecard {
   position: absolute;

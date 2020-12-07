@@ -1,6 +1,6 @@
 import Home from '@/views/Home.vue'
-import Admin from '@/views/Admin.vue'
-import Log from '@/views/Log.vue'
+import Search from '@/views/Search.vue'
+import Question from '@/views/Question.vue'
 
 const routes = [
   {
@@ -9,14 +9,14 @@ const routes = [
     component: Home,
   },
   {
-    path: '/admin/:id',
-    name: 'Admin',
-    component: Admin,
+    path: '/search',
+    name: 'Search',
+    component: Search,
   },
   {
-    path: '/log',
-    name: 'Log',
-    component: Log,
+    path: '/question/:id',
+    name: 'Question',
+    component: Question,
   },
 ]
 

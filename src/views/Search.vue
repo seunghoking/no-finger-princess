@@ -1,7 +1,5 @@
 <template>
-  <div>
-    ADMIN
-  </div>
+  <div>Search</div>
 </template>
 <script>
 export default {}

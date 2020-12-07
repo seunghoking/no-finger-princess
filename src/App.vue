@@ -6,9 +6,13 @@
       </router-link>
 
       <div>
-        <router-link class="navigation--list" :to="{ name: 'Admin' }">관리</router-link>
-        <router-link class="navigation--list" :to="{ name: 'Log' }">Ask Question</router-link>
-        <div class="navigation--list signIn" @click="oauthLogin()">Sign in</div>
+        <router-link class="navigation--list" :to="{ name: 'Search' }">Ask Question</router-link>
+        <div v-if="isSignIn" class="navigation--list signIn">
+          <button @click="googleSignOut">logout</button>
+        </div>
+        <div v-else class="navigation--list signIn">
+          <button :disabled="isApiLoaded" @click="googleSignIn">login</button>
+        </div>
       </div>
     </nav>
     <router-view class="app-router" />
@@ -23,11 +27,39 @@ export default {
     Logo,
   },
 
+  data() {
+    return {
+      isSignIn: false,
+      isApiLoaded: false,
+      currentUser: null,
+    }
+  },
+
+  mounted() {
+    this.isApiLoaded = this.$gAuth.isInit
+  },
+
   methods: {
-    oauthLogin() {
-      axios.get('http://localhost:3355/auth/sign/login/google').then(res => {
-        console.log(res)
-      })
+    async googleSignIn() {
+      try {
+        const authCode = await this.$gAuth.getAuthCode()
+        const response = await axios.post(
+          'http://localhost:3355/auth/sign/login',
+          { code: authCode, redirect_uri: 'postmessage' },
+          { withCredentials: true },
+        )
+        this.isSignIn = true
+        this.currentUser = response.data.data
+        console.log(this.currentUser)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async googleSignOut() {
+      const response = await this.$gAuth.signOut()
+      this.isSignIn = false
+      console.log(response)
     },
   },
 }
