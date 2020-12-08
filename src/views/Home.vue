@@ -9,8 +9,18 @@
         @click="routerDetail(item.id)"
       >
         <div class="thecard">
-          <div class="thefront">{{item.id}}</div>
-          <div class="theback">{{item.frameworkName}}</div>
+          <div
+            class="thefront"
+            :style="{'background-image': 'url(' + require(`../assets/img/${item.photo}`) + ')'}"
+          ></div>
+          <div
+            class="theback"
+            :style="{'background-image': 'url(' + require(`../assets/img/${item.photo}`) + ')'}"
+          >
+            질문 갯수
+            <br />
+            {{item.questionListCount}}
+          </div>
         </div>
       </div>
     </div>
@@ -29,17 +39,42 @@ export default {
 
   created() {
     this.frameworkData = [
-      { id: 1, frameworkName: 'js' },
-      { id: 2, frameworkName: 'python' },
-      { id: 3, frameworkName: 'java' },
-      { id: 4, frameworkName: 'c' },
-      { id: 5, frameworkName: 'c' },
-      { id: 6, frameworkName: 'c' },
-      { id: 7, frameworkName: 'c' },
-      { id: 8, frameworkName: 'c' },
-      { id: 9, frameworkName: 'c' },
-      { id: 10, frameworkName: 'c' },
-      { id: 11, frameworkName: 'c' },
+      {
+        id: 1,
+        frameworkName: 'Javascript',
+        photo: 'JavaScript-logo.png',
+        questionListCount: 20,
+      },
+      {
+        id: 2,
+        frameworkName: 'python',
+        photo: 'Python-logo.png',
+        questionListCount: 150,
+      },
+      {
+        id: 3,
+        frameworkName: 'spring',
+        photo: 'Spring-logo.png',
+        questionListCount: 2,
+      },
+      {
+        id: 4,
+        frameworkName: 'swift',
+        photo: 'Swift-logo.png',
+        questionListCount: 2000,
+      },
+      {
+        id: 5,
+        frameworkName: 'vue',
+        photo: 'Vue-logo.png',
+        questionListCount: 32210,
+      },
+      {
+        id: 6,
+        frameworkName: 'android',
+        photo: 'Android-logo.png',
+        questionListCount: 2130,
+      },
     ]
   },
 
@@ -57,8 +92,9 @@ export default {
 }
 .home_header {
   margin-bottom: 5rem;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
+  color: rgb(68, 68, 68);
 }
 .container {
   display: flex;
@@ -92,24 +128,27 @@ export default {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: #ffc728;
   color: #333;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   border-radius: 2rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .theback {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: #5fcf80;
   color: #fff;
   transform: rotateY(180deg);
   text-align: center;
-  font-size: 18px;
+  font-size: 3rem;
   font-weight: bold;
   border-radius: 2rem;
+  line-height: 20rem;
+  background-color: rgb(68, 68, 68);
 }
 </style>
