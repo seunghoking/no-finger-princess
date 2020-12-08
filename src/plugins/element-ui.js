@@ -20,6 +20,7 @@ import {
   Divider,
   Link,
   Tooltip,
+  Menu,
 } from 'element-ui'
 
 import '@/scss/element-variables.scss'
@@ -49,3 +50,4 @@ Vue.use(DropdownItem)
 Vue.use(Divider)
 Vue.use(Link)
 Vue.use(Tooltip)
+Vue.use(Menu)

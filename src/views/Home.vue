@@ -51,12 +51,12 @@ export default {
         photo: 'Python-logo.png',
         questionListCount: 150,
       },
-      {
-        id: 3,
-        frameworkName: 'spring',
-        photo: 'Spring-logo.png',
-        questionListCount: 2,
-      },
+      // {
+      //   id: 3,
+      //   frameworkName: 'spring',
+      //   photo: 'Spring-logo.png',
+      //   questionListCount: 2,
+      // },
       {
         id: 4,
         frameworkName: 'swift',
