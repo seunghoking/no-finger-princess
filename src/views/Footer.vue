@@ -36,14 +36,17 @@ export default {
 .text1 {
   color: #bbc0c4;
   font-weight: bold;
-  font-size : 2rem;
+  font-size : 2.5rem;
+  font-family: 'Yeon Sung', cursive;
 }
 .text2 {
   color: #6a737c;
   font-weight: bold;
+  font-family: 'Yeon Sung', cursive;
 }
 .text3 {
   font-weight: bold;
+  font-family: 'Yeon Sung', cursive;
 }
 .velog-logo,
 .github-logo {

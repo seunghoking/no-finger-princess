@@ -92,9 +92,10 @@ export default {
 }
 .home_header {
   margin-bottom: 5rem;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: rgb(68, 68, 68);
+  font-family: 'Yeon Sung', cursive;
 }
 .container {
   display: flex;
@@ -146,9 +147,9 @@ export default {
   transform: rotateY(180deg);
   text-align: center;
   font-size: 3rem;
-  font-weight: bold;
   border-radius: 2rem;
   line-height: 20rem;
   background-color: rgb(68, 68, 68);
+  font-family: 'Black Han Sans', sans-serif;
 }
 </style>
