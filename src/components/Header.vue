@@ -1,8 +1,6 @@
 <template>
   <nav class="navigation">
-    <router-link :to="{ name: 'Home' }">
-      <Logo class="logo" />
-    </router-link>
+    <Logo class="logo" />
 
     <div>
       <el-input
@@ -75,6 +73,7 @@ export default {
 
     searchQuestions(event) {
       console.log('search!!! : ', event)
+      this.$router.push({ name: 'Search', query: { name: this.inputText } })
     },
   },
 }
@@ -96,6 +95,7 @@ export default {
   height: 7rem;
   font-size: 1.6rem;
   justify-content: space-between;
+  box-shadow: 10px 4px 2px #ececec;
   &--list {
     margin-right: 5rem;
     &:not(:last-child) {
@@ -106,7 +106,7 @@ export default {
         display: block;
         content: '';
         margin-top: 5px;
-        border: 2px solid white;
+        border: 2px solid #fff;
       }
     }
   }

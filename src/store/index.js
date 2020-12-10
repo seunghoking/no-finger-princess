@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from '@/api'
+import axios from 'axios'
 
 // Modules
 // ───────────────────────────────────
 
-let moduleList = ['log']
+// let moduleList = ['log']
 
-let modules = {}
+// let modules = {}
 
-moduleList.forEach(val => {
-  const path = require(`./modules/${val}`)
-  modules[val] = path.default
-})
+// moduleList.forEach(val => {
+//   const path = require(`./modules/${val}`)
+//   modules[val] = path.default
+// })
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
@@ -20,7 +20,7 @@ const store = new Vuex.Store({
   mutations: {},
   actions: {},
   getters: {},
-  modules,
+  // modules,
 })
 
 store.$axios = axios

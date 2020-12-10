@@ -21,6 +21,9 @@ import {
   Link,
   Tooltip,
   Menu,
+  Button,
+  Tag,
+  Popover,
 } from 'element-ui'
 
 import '@/scss/element-variables.scss'
@@ -51,3 +54,6 @@ Vue.use(Divider)
 Vue.use(Link)
 Vue.use(Tooltip)
 Vue.use(Menu)
+Vue.use(Button)
+Vue.use(Tag)
+Vue.use(Popover)

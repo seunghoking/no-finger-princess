@@ -1,7 +1,14 @@
 <template>
-  <div>Search</div>
+  <div>
+    <Sidebar></Sidebar>
+  </div>
 </template>
 <script>
-export default {}
+import Sidebar from '@/components/Sidebar.vue'
+export default {
+  components: {
+    Sidebar,
+  },
+}
 </script>
 <style lang="scss" scoped></style>

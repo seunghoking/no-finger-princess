@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <div class="home_header">개발자, 물어보기 전에 검색해!</div>
+    <div class="home_header">코딩 첨삭</div>
+    <div class="home_header2">개발자, 물어보기 전에 검색해!</div>
     <div class="container">
       <div
         class="frameWorkItem"
@@ -41,37 +42,31 @@ export default {
     this.frameworkData = [
       {
         id: 1,
-        frameworkName: 'Javascript',
+        frameworkName: 'JS',
         photo: 'JavaScript-logo.png',
         questionListCount: 20,
       },
       {
         id: 2,
-        frameworkName: 'python',
+        frameworkName: 'Python',
         photo: 'Python-logo.png',
         questionListCount: 150,
       },
-      // {
-      //   id: 3,
-      //   frameworkName: 'spring',
-      //   photo: 'Spring-logo.png',
-      //   questionListCount: 2,
-      // },
       {
         id: 4,
-        frameworkName: 'swift',
+        frameworkName: 'Swift',
         photo: 'Swift-logo.png',
         questionListCount: 2000,
       },
       {
         id: 5,
-        frameworkName: 'vue',
+        frameworkName: 'Vue',
         photo: 'Vue-logo.png',
         questionListCount: 32210,
       },
       {
         id: 6,
-        frameworkName: 'android',
+        frameworkName: 'Android',
         photo: 'Android-logo.png',
         questionListCount: 2130,
       },
@@ -91,11 +86,18 @@ export default {
   margin: 5rem;
 }
 .home_header {
-  margin-bottom: 5rem;
-  font-size: 4rem;
-  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
   color: rgb(68, 68, 68);
-  font-family: 'Yeon Sung', cursive;
+  font-family: 'Black Han Sans', sans-serif;
+  text-shadow: 3px 2px 2px #9d9d9d;
+}
+.home_header2 {
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  font-family: 'Black Han Sans', sans-serif;
+  color: rgb(68, 68, 68);
+  text-shadow: 3px 2px 2px #9d9d9d;
 }
 .container {
   display: flex;
@@ -150,6 +152,7 @@ export default {
   border-radius: 2rem;
   line-height: 20rem;
   background-color: rgb(68, 68, 68);
+  text-shadow: 1px 1px 1px black;
   font-family: 'Black Han Sans', sans-serif;
 }
 </style>

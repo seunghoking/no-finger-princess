@@ -29,5 +29,6 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
+  linkActiveClass: 'active',
   render: h => h(App),
 }).$mount('#app')

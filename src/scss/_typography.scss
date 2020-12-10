@@ -3,46 +3,7 @@
 //
 //  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-//웹 폰트로 변경
-
-@font-face {
-  font-family: 'Noto Sans KR';
-  src: url(~@/assets/fonts/NotoSans/NotoSansKR-DemiLight.woff2) format('woff2'),
-    url(~@/assets/fonts/NotoSans/NotoSansKR-DemiLight.woff) format('woff');
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans KR';
-  src: url(~@/assets/fonts/NotoSans/NotoSansKR-Regular.woff2) format('woff2'),
-    url(~@/assets/fonts/NotoSans/NotoSansKR-Regular.woff) format('woff');
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans KR';
-  src: url(~@/assets/fonts/NotoSans/NotoSansKR-Medium.woff2) format('woff2'),
-    url(~@/assets/fonts/NotoSans/NotoSansKR-Medium.woff) format('woff');
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans KR';
-  src: url(~@/assets/fonts/NotoSans/NotoSansKR-Bold.woff2) format('woff2'),
-    url(~@/assets/fonts/NotoSans/NotoSansKR-Bold.woff) format('woff');
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
-
 body {
-  font-family: $font-primary;
   font-size: 1.4rem;
   color: $color-text-black;
 }
