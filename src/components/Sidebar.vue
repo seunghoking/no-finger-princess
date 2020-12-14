@@ -7,7 +7,7 @@
       <router-link :to="{name : 'Home'}">
         <i class="fas fa-home"></i>
       </router-link>
-      <router-link :to="{name : 'SearchAll'}">
+      <router-link :to="`/question/all`">
         <i class="fas fa-archive"></i>
       </router-link>
       <div v-for="item in frameworkData" :key="item.id">
@@ -22,7 +22,7 @@
           <router-link :to="{name : 'Home'}">Home</router-link>
         </div>
         <div v-show="showLink" key="100">
-          <router-link :to="{name : 'SearchAll'}">All</router-link>
+          <router-link :to="`/question/all`">All</router-link>
         </div>
         <div v-for="item in frameworkData" v-show="showLink" :key="item.id">
           <router-link :to="`/question/${item.id}`" active-class="active">{{item.frameworkName}}</router-link>
@@ -43,43 +43,7 @@ export default {
     }
   },
   created() {
-    this.frameworkData = [
-      {
-        id: 1,
-        frameworkName: 'JS',
-        photo: 'JavaScript-logo.png',
-        questionListCount: 20,
-        icon: 'fab fa-js',
-      },
-      {
-        id: 2,
-        frameworkName: 'Python',
-        photo: 'Python-logo.png',
-        questionListCount: 150,
-        icon: 'fab fa-python',
-      },
-      {
-        id: 4,
-        frameworkName: 'Swift',
-        photo: 'Swift-logo.png',
-        questionListCount: 2000,
-        icon: 'fab fa-swift',
-      },
-      {
-        id: 5,
-        frameworkName: 'Vue',
-        photo: 'Vue-logo.png',
-        questionListCount: 32210,
-        icon: 'fab fa-vuejs',
-      },
-      {
-        id: 6,
-        frameworkName: 'Android',
-        photo: 'Android-logo.png',
-        questionListCount: 2130,
-        icon: 'fab fa-android',
-      },
-    ]
+    this.frameworkData = this.$store.state.frameworkData
   },
   methods: {
     showNav() {
@@ -110,7 +74,7 @@ export default {
   width: 5rem;
   padding: 1rem;
   height: 100rem;
-  background-color: rgba($color: #808080, $alpha: 0.4);
+  background-color: rgba($color: #808080, $alpha: 0.3);
   border: solid #fff;
   border-width: 0 1px 0 0;
   z-index: 999;
@@ -166,7 +130,7 @@ export default {
       margin-bottom: 2.35rem;
       cursor: pointer;
       &:hover {
-        color: #50bcdf;
+        color: #0064bd;
       }
     }
   }
@@ -182,6 +146,6 @@ export default {
 }
 
 .router-link-exact-active {
-  color: #50bcdf;
+  color: #0064bd;
 }
 </style>

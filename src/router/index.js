@@ -1,7 +1,7 @@
 import Home from '@/views/Home.vue'
 import Search from '@/views/Search.vue'
 import Question from '@/views/Question.vue'
-import SearchAll from '@/views/SearchAll.vue'
+import Ask from '@/views/Ask.vue'
 
 const routes = [
   {
@@ -20,9 +20,9 @@ const routes = [
     component: Question,
   },
   {
-    path: '/searchall',
-    name: 'SearchAll',
-    component: SearchAll,
+    path: '/ask',
+    name: 'Ask',
+    component: Ask,
   },
 ]
 

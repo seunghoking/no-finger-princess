@@ -1,11 +1,18 @@
 <template>
-  <div>
-    <Sidebar :isSidebarLarge.sync="isSidebarLarge"></Sidebar>
-    <ul class="q_list_ul">
-      <p class="q_list_header">All Questions</p>
-      <li class="q_list_li" v-for="list in listData" :key="list.id">
-        <div class="q_list_li__inner">
-          <div class="q_list_li__inner__answer" :class="{border_green : (list.answer_count > 0)}">
+  <ul class="q_list_ul">
+    <div class="q_list_header">
+      <span class="q_list_header__span">Questions</span>
+      <router-link :to="{name:'Ask'}">
+        <el-button type="primary" class="q_list_header__btn">Ask Question</el-button>
+      </router-link>
+    </div>
+    <li class="q_list_li" v-for="list in listData" :key="list.id">
+      <div class="q_list_li__inner">
+        <div class="flex_class">
+          <div
+            class="q_list_li__inner__answer"
+            :class="[{border_green : (list.answer_count > 0 && !list.selection)}, {bg_green : (list.answer_count > 0 && list.selection)}]"
+          >
             <span class="innerNum">{{list.answer_count}}</span>
             <br />
             <span class="innerText">answer</span>
@@ -15,29 +22,24 @@
             <br />
             <span class="innerText">views</span>
           </div>
-          <div class="q_list_li__inner__title">{{list.title}}</div>
-          <div class="q_list_li__inner__tag">
-            <el-tag>{{list.tag}}</el-tag>
-          </div>
         </div>
-      </li>
-    </ul>
-  </div>
+        <div class="q_list_li__inner__title">{{list.title}}</div>
+        <div class="q_list_li__inner__tag">
+          <el-tag>{{list.tag}}</el-tag>
+        </div>
+      </div>
+    </li>
+  </ul>
 </template>
-<script>
-import Sidebar from '@/components/Sidebar.vue'
-export default {
-  components: {
-    Sidebar,
-  },
 
+<script>
+export default {
+  props: ['isSeachAll'],
   data() {
     return {
       listData: null,
-      isSidebarLarge: true,
     }
   },
-
   created() {
     this.listData = [
       {
@@ -46,6 +48,7 @@ export default {
         tag: 'javascript',
         answer_count: 2,
         view_count: 12,
+        selection: false,
       },
       {
         id: 2,
@@ -54,6 +57,7 @@ export default {
         tag: 'python',
         answer_count: 0,
         view_count: 12,
+        selection: false,
       },
       {
         id: 3,
@@ -62,6 +66,7 @@ export default {
         tag: 'javascript',
         answer_count: 14,
         view_count: 12,
+        selection: true,
       },
       {
         id: 4,
@@ -70,6 +75,7 @@ export default {
         tag: 'python',
         answer_count: 100,
         view_count: 10002,
+        selection: false,
       },
       {
         id: 5,
@@ -78,6 +84,7 @@ export default {
         tag: 'javascript',
         answer_count: 0,
         view_count: 1212110,
+        selection: false,
       },
       {
         id: 6,
@@ -85,39 +92,27 @@ export default {
         tag: 'python',
         answer_count: 20000,
         view_count: 0,
+        selection: false,
       },
     ]
-  },
-
-  watch: {
-    isSidebarLarge: function(val) {
-      const listEle = document.getElementsByClassName('q_list_ul')[0]
-      if (val) {
-        listEle.style.width = 'calc(100% - 180px)'
-      } else {
-        listEle.style.width = 'calc(100% - 50px)'
-      }
-    },
-  },
-
-  mounted() {
-    this.$nextTick(function() {
-      const listEle = document.getElementsByClassName('q_list_ul')[0]
-      if (this.isSidebarLarge) {
-        listEle.style.width = 'calc(100% - 180px)'
-      } else {
-        listEle.style.width = 'calc(100% - 50px)'
-      }
-    })
   },
 }
 </script>
 <style lang="scss" scoped>
 .q_list {
   &_header {
-    font-size: 3rem;
-    margin-left: 3rem;
-    font-weight: bold;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    &__span {
+      font-size: 3rem;
+      margin-left: 3rem;
+      font-weight: bold;
+    }
+    &__btn {
+      margin-right: 2rem;
+    }
   }
   &_ul {
     float: right;
@@ -147,13 +142,13 @@ export default {
         padding: 1rem;
       }
       &__title {
-        width: 80%;
+        width: 90%;
         padding: 1rem;
         font-size: 1.8rem;
         color: #0064bd;
       }
       &__tag {
-        width: 20%;
+        width: 10%;
         padding: 1rem;
       }
     }
@@ -174,5 +169,46 @@ export default {
   border: 1px solid #48a868;
   border-radius: 0.3rem;
   color: #48a868;
+}
+.bg_green {
+  color: #fff;
+  background-color: #48a868;
+  border-radius: 0.3rem;
+}
+.flex_class {
+  display: flex;
+  align-items: baseline;
+}
+@media (max-width: 640px) {
+  .q_list_li__inner {
+    display: block;
+    &__answer {
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 6rem;
+      height: 5rem;
+    }
+    &__view {
+      padding: 0;
+      width: 5rem;
+      margin: 0;
+    }
+    &__tag {
+      position: sticky;
+      position: -webkit-sticky;
+      bottom: -2.4rem;
+    }
+  }
+  .q_list_li {
+    height: 18rem;
+    overflow: hidden;
+  }
+  .flex_class {
+    height: 4.5rem;
+  }
+  .innerText {
+    top: 0.7rem;
+  }
 }
 </style>

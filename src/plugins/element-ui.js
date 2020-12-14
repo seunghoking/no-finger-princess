@@ -24,6 +24,8 @@ import {
   Button,
   Tag,
   Popover,
+  Form,
+  FormItem,
 } from 'element-ui'
 
 import '@/scss/element-variables.scss'
@@ -57,3 +59,5 @@ Vue.use(Menu)
 Vue.use(Button)
 Vue.use(Tag)
 Vue.use(Popover)
+Vue.use(Form)
+Vue.use(FormItem)

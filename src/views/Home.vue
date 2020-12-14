@@ -39,38 +39,8 @@ export default {
   },
 
   created() {
-    this.frameworkData = [
-      {
-        id: 1,
-        frameworkName: 'JS',
-        photo: 'JavaScript-logo.png',
-        questionListCount: 20,
-      },
-      {
-        id: 2,
-        frameworkName: 'Python',
-        photo: 'Python-logo.png',
-        questionListCount: 150,
-      },
-      {
-        id: 4,
-        frameworkName: 'Swift',
-        photo: 'Swift-logo.png',
-        questionListCount: 2000,
-      },
-      {
-        id: 5,
-        frameworkName: 'Vue',
-        photo: 'Vue-logo.png',
-        questionListCount: 32210,
-      },
-      {
-        id: 6,
-        frameworkName: 'Android',
-        photo: 'Android-logo.png',
-        questionListCount: 2130,
-      },
-    ]
+    
+    this.frameworkData = this.$store.state.frameworkData
   },
 
   methods: {
@@ -82,18 +52,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  margin: 5rem;
-}
 .home_header {
-  margin-bottom: 1rem;
+  margin: 4rem 0 0 3rem;
   font-size: 4.5rem;
   color: rgb(68, 68, 68);
   font-family: 'Black Han Sans', sans-serif;
   text-shadow: 3px 2px 2px #9d9d9d;
 }
 .home_header2 {
-  margin-bottom: 5rem;
+  margin: 1rem 0 3rem 3rem;
   font-size: 2rem;
   font-family: 'Black Han Sans', sans-serif;
   color: rgb(68, 68, 68);
@@ -102,23 +69,19 @@ export default {
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 0.5rem;
-  margin-right: 5px;
 }
 .frameWorkItem {
-  width: 26rem;
+  width: calc(25% - 2rem);
   height: 33rem;
-  margin-bottom: 7rem;
-  margin-left: 2rem;
-  margin-right: 5rem;
+  margin: 1rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
   border-radius: 2rem;
   background-color: transparent;
 }
 .thecard {
-  position: absolute;
-  width: 26rem;
-  height: 33rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s;
   cursor: pointer;
@@ -144,6 +107,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-size: 100rem;
   backface-visibility: hidden;
   color: #fff;
   transform: rotateY(180deg);
@@ -154,5 +118,24 @@ export default {
   background-color: rgb(68, 68, 68);
   text-shadow: 1px 1px 1px black;
   font-family: 'Black Han Sans', sans-serif;
+}
+
+@media (max-width: 1056px) {
+  .frameWorkItem {
+    width: calc(33% - 2rem);
+  }
+}
+@media (max-width: 767px) {
+  .frameWorkItem {
+    width: calc(50% - 2rem);
+  }
+}
+@media (max-width: 475px) {
+  .frameWorkItem {
+    width: 70%;
+  }
+  .container {
+    justify-content: center;
+  }
 }
 </style>

@@ -1,8 +1,27 @@
 <template>
   <nav class="navigation">
-    <Logo class="logo" />
+    <div class="logo_div">
+      <el-dropdown class="dropdown" trigger="click">
+        <span class="el-dropdown-link">
+          <i class="fas fa-bars"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            <router-link :to="{name : 'Home'}">Home</router-link>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <router-link :to="`/question/all`">All</router-link>
+          </el-dropdown-item>
+          <el-dropdown-item v-for="item in frameworkData" :key="item.id">
+            <router-link :to="`/question/${item.id}`">{{item.frameworkName}}</router-link>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <i class="far fa-hand-point-up logo"></i>
+      <span class="logo_name">No, Finger Princess</span>
+    </div>
 
-    <div>
+    <div class="menu_div">
       <el-input
         placeholder="Search"
         v-model="inputText"
@@ -25,20 +44,15 @@
 </template>
 
 <script>
-import Logo from '@/assets/img/logo3.svg'
 import axios from 'axios'
 
 export default {
-  components: {
-    Logo,
-  },
-
   data() {
     return {
       isSignIn: false,
-      // isApiLoaded: false,
       currentUser: null,
       inputText: '',
+      frameworkData: null,
     }
   },
 
@@ -46,6 +60,10 @@ export default {
     inputText: function(val) {
       console.log(val)
     },
+  },
+
+  created() {
+    this.frameworkData = this.$store.state.frameworkData
   },
 
   methods: {
@@ -73,19 +91,29 @@ export default {
 
     searchQuestions(event) {
       console.log('search!!! : ', event)
-      this.$router.push({ name: 'Search', query: { name: this.inputText } })
+      const path = '/search'
+      if (this.$route.path !== path) this.$router.push(path)
     },
   },
 }
 </script>
 
 <style lang="scss">
-.logo {
-  width: 20rem;
-  height: 20rem;
+.dropdown {
+  display: none !important;
+}
+.menu_div {
+  display: flex;
+}
+.logo_div {
   margin-left: 1rem;
-  margin-right: 3rem;
-  margin-top: 1.5rem;
+  color: rgb(68, 68, 68);
+}
+.logo {
+  font-size: 4rem;
+  &_name {
+    font-family: 'Black Han Sans', sans-serif;
+  }
 }
 .navigation {
   border-bottom: 1px solid #e2e2e2;
@@ -111,13 +139,9 @@ export default {
     }
   }
 }
-.signIn {
-  display: inline;
-}
 .el-input {
-  display: inline !important;
   &__inner {
-    width: 25rem !important;
+    width: 20rem !important;
     margin-right: 4rem !important;
   }
 }
@@ -127,5 +151,35 @@ export default {
   border-radius: 4rem;
   vertical-align: middle;
   cursor: pointer;
+}
+
+@media screen and (max-width: 602px) {
+  .navigation {
+    height: 11rem;
+    display: block;
+  }
+  .menu_div {
+    position: relative;
+    top: 2rem;
+  }
+  .el-input {
+    margin-left: 2rem;
+  }
+  .logo_div {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 640px) {
+  .dropdown {
+    display: inline !important;
+  }
+  .el-dropdown-link {
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .logo {
+    font-size: 3rem;
+  }
 }
 </style>

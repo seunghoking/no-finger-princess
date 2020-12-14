@@ -14,6 +14,10 @@ export default {
     Header,
     Footer,
   },
+
+  created() {
+    this.$store.commit('getFrameWorkData')
+  },
 }
 </script>
 <style lang="scss">
