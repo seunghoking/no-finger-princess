@@ -39,7 +39,6 @@ export default {
   },
 
   created() {
-    
     this.frameworkData = this.$store.state.frameworkData
   },
 

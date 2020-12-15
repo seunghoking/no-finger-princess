@@ -23,7 +23,9 @@
             <span class="innerText">views</span>
           </div>
         </div>
-        <div class="q_list_li__inner__title">{{list.title}}</div>
+        <div class="q_list_li__inner__title">
+          <a @click="onClick(list.id)">{{list.title}}</a>
+        </div>
         <div class="q_list_li__inner__tag">
           <el-tag>{{list.tag}}</el-tag>
         </div>
@@ -95,6 +97,15 @@ export default {
         selection: false,
       },
     ]
+  },
+  methods: {
+    onClick(path) {
+      // const result = `${this.$route.path}/detail/${path}`
+      const result = `detail/${path}`
+      console.log(this.$route.path)
+      console.log(result)
+      this.$router.push(result)
+    },
   },
 }
 </script>

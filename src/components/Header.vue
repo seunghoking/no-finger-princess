@@ -113,6 +113,9 @@ export default {
   font-size: 4rem;
   &_name {
     font-family: 'Black Han Sans', sans-serif;
+    position: relative;
+    top: -0.5rem;
+    left: 1rem;
   }
 }
 .navigation {
